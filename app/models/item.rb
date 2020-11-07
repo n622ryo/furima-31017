@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
-  #通常のアソシエーション
+  #userとのアソシエーション
   belongs_to :user
+  #imageとのアソシエーション
   has_one_attached :image
 
   #ActiveHashとのアソシエーション
@@ -12,5 +13,13 @@ class Item < ApplicationRecord
   belongs_to :deliveryday
 
   validates :image, presence: true
+  validates :product, presence: true
+  validates :description, presence: true
+  validates :price, presence: true
+  validates :category_id, presence: true,numericality: { other_than: 1 } 
+  validates :status_id, presence: true, numericality: { other_than: 1 } 
+  validates :burden_id, presence: true, numericality: { other_than: 1 } 
+  validates :area_id, presence: true, numericality: { other_than: 1 } 
+  validates :deliveryday_id, presence: true, numericality: { other_than: 1 } 
 
 end
