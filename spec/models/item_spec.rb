@@ -9,10 +9,6 @@ RSpec.describe Item, type: :model do
       it "imageとproduct、description、category_id、status_id、burden_id、area_id、deliveryday_id、priceが存在すれば登録できる" do
        expect(@item).to be_valid
       end
-      it "販売価格が半角数字であれば出品できる" do
-        @item.price = "300"
-        expect(@item).to be_valid
-      end
     end
 
     context '商品出品ががうまくいかない時' do
@@ -36,25 +32,50 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank", "Category is not a number")
       end
+      it "カテゴリーの選択肢に『----』が選択されている場合は出品できない" do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
+      end
       it "商品の状態についての情報がないと出品できない" do
         @item.status_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank", "Status is not a number")
+      end
+      it "商品の選択肢に『----』が選択されている場合は出品できない" do
+        @item.status_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status must be other than 1")
       end
       it "配送料の負担についての情報がないと出品できない" do
         @item.burden_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Burden can't be blank", "Burden is not a number")
       end
-      it "発送元の負担についての情報がないと出品できない" do
+      it "配送料の負担の選択肢に『----』が選択されている場合は出品できない" do
+        @item.burden_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Burden must be other than 1")
+      end
+      it "発送元の地域についての情報がないと出品できない" do
         @item.area_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Area can't be blank", "Area is not a number")
+      end
+      it "発送元の地域の選択肢に『----』が選択されている場合は出品できない" do
+        @item.area_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Area must be other than 1")
       end
       it "発送までの日数についての情報がないと出品できない" do
         @item.deliveryday_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Deliveryday can't be blank", "Deliveryday is not a number")
+      end
+      it "発送までの日数の選択肢に『----』が選択されている場合は出品できない" do
+        @item.deliveryday_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Deliveryday must be other than 1")
       end
       it "販売価格についての情報がないと出品できない" do
         @item.price = nil
