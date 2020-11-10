@@ -12,14 +12,18 @@ class Item < ApplicationRecord
   belongs_to :area
   belongs_to :deliveryday
 
-  validates :image, presence: true
-  validates :product, presence: true
-  validates :description, presence: true
-  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range"}
-  validates :category_id, presence: true,numericality: { other_than: 1 } 
-  validates :status_id, presence: true, numericality: { other_than: 1 } 
-  validates :burden_id, presence: true, numericality: { other_than: 1 } 
-  validates :area_id, presence: true, numericality: { other_than: 1 } 
-  validates :deliveryday_id, presence: true, numericality: { other_than: 1 } 
+  with_options presence: true do
+    validates :image
+    validates :product
+    validates :description
+    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range"}
 
+    with_options numericality: { other_than: 1 } do
+      validates :category_id
+      validates :status_id
+      validates :burden_id
+      validates :area_id
+      validates :deliveryday_id
+    end
+  end
 end
