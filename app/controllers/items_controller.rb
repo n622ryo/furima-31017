@@ -40,6 +40,8 @@ class ItemsController < ApplicationController
     if current_user == @item.user
       @item.destroy
       redirect_to root_path
+    else
+      redirect_to action: :index
     end
   end
 
