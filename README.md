@@ -50,12 +50,12 @@ belongs_to : user
 
 | Column        | Type       | Options                     |
 | ------------- | ---------- | --------------------------- |
-| post_code     | string     | null: false                 |
+| postcode      | string     | null: false                 |
 | prefecture_id | integer    | null: false,ActiveHash      |
 | city          | string     | null: false                 |
-| house_number  | string     | null: false                 |
-| building_name | string     |                             |
-| phone_number  | string     | null: false                 |
+| housenum      | string     | null: false                 |
+| buildname     | string     |                             |
+| phonenum      | string     | null: false                 |
 | order         | references | foreign_key:true            |
 
 belongs_to : order
