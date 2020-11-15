@@ -1,5 +1,9 @@
 class Order < ApplicationRecord
-  has_one: address
-  belongs_to: item
-  belongs_to: user
+  #addressとのアソシエーション
+  has_one :address
+  #itemとのアソシエーション
+  belongs_to :item
+  #userとのアソシエーション
+  belongs_to :user
+
 end
