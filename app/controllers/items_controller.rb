@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    # @addressorders = @item.addressorders
   end
 
   def edit
