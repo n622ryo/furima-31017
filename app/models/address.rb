@@ -1,6 +1,6 @@
 class Address < ApplicationRecord
-  #userとのアソシエーション
-  belongs_to: order
+  #orderとのアソシエーション
+  belongs_to :order
 
   #ActiveHashとのアソシエーション
   extend ActiveHash::Associations::ActiveRecordExtensions
