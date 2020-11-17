@@ -11,7 +11,6 @@ class Address < ApplicationRecord
     validates :city
     validates :housenum
     validates :phonenum
-    validates :phonenum
 
     with_options numericality: { other_than: 1 } do
       validates :prefecture_id
