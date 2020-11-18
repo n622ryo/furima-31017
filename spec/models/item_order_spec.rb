@@ -6,7 +6,11 @@ RSpec.describe ItemOrder, type: :model do
 
   describe '商品購入機能' do
     context '商品購入がうまくいく時' do
-      it "postcodeとprefecture_id、city、housenum、phonenum、tokenが存在すれば購入できる" do
+      it "postcodeとprefecture_id、city、housenum、phonenum、tokenが存在すれば登録できる" do
+        expect(@item_order).to be_valid
+      end
+      it "buildnameが無くても登録できる" do
+        @item_order.buildname = nil
         expect(@item_order).to be_valid
       end
     end
