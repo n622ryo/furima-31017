@@ -1,7 +1,7 @@
 class ItemOrder
 
   include ActiveModel::Model
-  attr_accessor :postcode, :prefecture_id, :city, :housenum, :buildname, :phonenum, :user_id, :item_id, :order_id, :token
+  attr_accessor :postcode, :prefecture_id, :city, :housenum, :buildname, :phonenum, :user_id, :item_id, :token
 
   with_options presence: true do
     validates :token
