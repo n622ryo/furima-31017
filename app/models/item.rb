@@ -3,6 +3,8 @@ class Item < ApplicationRecord
   belongs_to :user
   #imageとのアソシエーション
   has_one_attached :image
+  #orderとのアソシエーション
+  has_one :order
 
   #ActiveHashとのアソシエーション
   extend ActiveHash::Associations::ActiveRecordExtensions
