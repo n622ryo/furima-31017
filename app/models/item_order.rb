@@ -1,18 +1,19 @@
 class ItemOrder
 
   include ActiveModel::Model
-  attr_accessor :postcode, :prefecture_id, :city, :housenum, :buildname, :phonenum, :user_id, :item_id, :order_id
+  attr_accessor :postcode, :prefecture_id, :city, :housenum, :buildname, :phonenum, :user_id, :item_id, :order_id, :token
 
-# ここにバリデーションの処理を書く
   with_options presence: true do
-    validates :phonenum, format: {with: /\A\d{10,11}\z/ }
-    validates :city
-    validates :housenum
+    validates :token
     validates :postcode, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
 
     with_options numericality: { other_than: 1 } do
       validates :prefecture_id
     end
+
+    validates :city
+    validates :housenum
+    validates :phonenum, format: {with: /\A\d{10,11}\z/ }
   end
 
 
