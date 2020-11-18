@@ -14,6 +14,8 @@ class ItemOrder
     validates :city
     validates :housenum
     validates :phonenum, format: {with: /\A\d{10,11}\z/ }
+    validates :user_id
+    validates :item_id
   end
 
 
