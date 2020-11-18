@@ -59,3 +59,4 @@ belongs_to : user
 | order         | references | foreign_key:true            |
 
 belongs_to : order
+
