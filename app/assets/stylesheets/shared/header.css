@@ -5,8 +5,13 @@
 .top-page-header {
   width: 100vw;
   padding: 2vh 15vw;
+  margin-bottom: 100px;
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 0px;
+  z-index: 6;
+  background-color: rgb(226, 25, 10, 0.3);
 }
 
 .search-bar-contents {
