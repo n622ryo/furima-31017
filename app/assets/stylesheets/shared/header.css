@@ -23,6 +23,12 @@
 .furima-icon {
   width: 10vw;
   margin-right: 10vw;
+  transition: 0.3s;
+}
+
+.furima-icon:hover {
+  transform: scale(1.4);
+  background-color: red;
 }
 
 .search-form {
