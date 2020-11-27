@@ -7,6 +7,15 @@
   right: 32px;
   position: fixed;
   padding: 15px;
+  box-shadow: 4px 4px 0 0 rgb(25, 24, 24);
+  transition: 2s;
+}
+
+.purchase-btn:hover {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+  background-color: rgba(233, 97, 97, 0.726);
+  color: navy;
 }
 
 .purchase-btn-text {
